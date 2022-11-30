@@ -1,5 +1,6 @@
 import random
 import time
+import pyautogui as pyaut
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -44,6 +45,14 @@ while True:
                 nope_xpath = '//button//span[text()="Nope"]'  # like button element
                 nope_location = driver.find_element(by='xpath', value=nope_xpath)  # find the like button
                 driver.execute_script("arguments[0].click();", nope_location)  # click on like
+
+            # moving mouse and clicking
+            if i % 2 == 0:
+                pyaut.moveRel(0, 30)
+            else:
+                pyaut.moveRel(0, -30)
+            pyaut.click()
+            i+=1
 
             # pause between swipes
             sleep_time = random.randint(1, 3)
