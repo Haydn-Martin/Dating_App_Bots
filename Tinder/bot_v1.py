@@ -20,15 +20,11 @@ driver = webdriver.Chrome(service=service, options=options)
 # web address
 web = 'https://tinder.com/'
 
-#driver.get(web) #open tinder in chrome
-#time.sleep(5)
-
 ### Swiping ###
 
 # TODO
 # Exit the match screen to prevent failures when pop up
 
-#no_swipes = 20 #for testing
 like_ratio_rand = random.randint(10, 20)
 swipe_sesh = 20
 
@@ -44,13 +40,11 @@ while True:
                 like_xpath = '//button//span[text()="Like"]' #like button element
                 like_location = driver.find_element(by='xpath', value=like_xpath) #find the like button
                 driver.execute_script("arguments[0].click();", like_location) #click on like
-                time.sleep(1)
             else:
                 # noping someone
                 nope_xpath = '//button//span[text()="Nope"]'  # like button element
                 nope_location = driver.find_element(by='xpath', value=nope_xpath)  # find the like button
                 driver.execute_script("arguments[0].click();", nope_location)  # click on like
-                time.sleep(1)
 
             # moving mouse and clicking
             if i % 2 == 0:
@@ -60,15 +54,15 @@ while True:
             pyaut.click()
             i+=1
 
+            # pause between swipes
+            sleep_time = random.randint(2, 4)
+            time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
+
             # closing match pop up
             close_match_xpath = '//button[@title=Back to Tinder"]'
             close_match_window = driver.find_element(by='xpath', value =close_match_xpath)
             close_match_window.click()
             time.sleep(1)
-
-            # pause between swipes
-            sleep_time = random.randint(2, 4)
-            time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
 
         except:
             try:
