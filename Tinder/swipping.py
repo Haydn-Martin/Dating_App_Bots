@@ -23,9 +23,9 @@ web = 'https://tinder.com/'
 ### Swiping ###
 
 # TODO
-# Exit the match screen to prevent failures when pop up
+# Check match box disappears
 
-like_ratio_rand = random.randint(10, 20)
+like_ratio_rand = random.randint(10, 30)
 swipe_sesh = 20
 
 while True:
@@ -59,7 +59,7 @@ while True:
             time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
 
             # closing match pop up
-            close_match_xpath = '//button[@title=Back to Tinder"]'
+            close_match_xpath = '//button[@title=Keep Swiping"]'
             close_match_window = driver.find_element(by='xpath', value =close_match_xpath)
             close_match_window.click()
             time.sleep(1)
