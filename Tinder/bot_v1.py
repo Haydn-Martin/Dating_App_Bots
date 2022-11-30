@@ -20,20 +20,29 @@ driver = webdriver.Chrome(service=service, options=options)
 web = 'https://tinder.com/'
 
 driver.get(web) #open tinder in chrome
+time.sleep(5)
 
 ### Swiping ###
 
-no_swipes = 10 #for testing
+no_swipes = 20 #for testing
+like_ratio_rand = random.randint(40, 50)
 
 for i in range(no_swipes):
-
     try:
-        # liking someone
-        like_xpath = '//button//span[text()="Like"]' #like button element
-        like_location = driver.find_element(by='xpath', value=like_xpath) #find the like button
-        driver.execute_script("arguments[0].click();", like_location) #click on like
-        # pause between likes
-        sleep_time = random.randint(3, 6)
+
+        score = random.randint(30, 100,) #attractiveness - rand for now
+        if score > like_ratio_rand:
+            # liking someone
+            like_xpath = '//button//span[text()="Like"]' #like button element
+            like_location = driver.find_element(by='xpath', value=like_xpath) #find the like button
+            driver.execute_script("arguments[0].click();", like_location) #click on like
+        else:
+            nope_xpath = '//button//span[text()="Nope"]'  # like button element
+            nope_location = driver.find_element(by='xpath', value=nope_xpath)  # find the like button
+            driver.execute_script("arguments[0].click();", nope_location)  # click on like
+
+        # pause between swipes
+        sleep_time = random.randint(2, 4)
         time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
 
         # closing match pop up
