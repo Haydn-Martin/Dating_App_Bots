@@ -24,12 +24,15 @@ time.sleep(5)
 
 ### Swiping ###
 
-no_swipes = 20 #for testing
+# Find way to move mouse as well to keep screen active!
+# Exit the match screen to prevent failures when pop up
+
+#no_swipes = 20 #for testing
 like_ratio_rand = random.randint(10, 20)
+swipes = 200
 
-for i in range(no_swipes):
+for i in range(swipes):
     try:
-
         score = random.randint(0, 100) #attractiveness - rand for now
         if score > like_ratio_rand:
             # liking someone
