@@ -22,13 +22,21 @@ web = 'https://tinder.com/'
 ### Swiping ###
 
 # TODO
-# Get database of mens and women's names
-# Get name of profile and use to swipe left and right (with %)
 # Set profile to bisexual
-# Improve profile description
-# Go to different location
-# Change profile
-# Reset account
+    # Get name of profile
+    # Get database of mens names
+    # Get length of boys name, generate list of boys names for that length, search in list
+    # Swipe right (50-100%) of non-boy names
+# Messaging
+    # At end of round --> review new matches
+    # Get name and send name all in caps until no matches left
+    # Then start new round
+# Hacks
+    # Improve profile description
+    # Go to different location
+    # Change profile
+    # Reset account
+    # Message straight away
 
 like_ratio_rand = random.randint(20, 50)
 swipe_sesh = 50
