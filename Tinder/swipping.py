@@ -22,9 +22,15 @@ web = 'https://tinder.com/'
 ### Swiping ###
 
 # TODO
-# Check match box disappears
+# Get database of mens and women's names
+# Get name of profile and use to swipe left and right (with %)
+# Set profile to bisexual
+# Improve profile description
+# Go to different location
+# Change profile
+# Reset account
 
-like_ratio_rand = random.randint(10, 30)
+like_ratio_rand = random.randint(20, 50)
 swipe_sesh = 50
 
 while True:

@@ -22,9 +22,6 @@ web = 'https://tinder.com/'
 
 ### Swiping ###
 
-# TODO
-# Check match box disappears
-
 like_ratio_rand = random.randint(10, 30)
 swipe_sesh = 50
 
