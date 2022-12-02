@@ -1,5 +1,6 @@
 import random
 import time
+import pandas as pd
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -19,27 +20,59 @@ driver = webdriver.Chrome(service=service, options=options)
 # web address
 web = 'https://tinder.com/'
 
+# boys names csv
+name_df = pd.read_csv('name_gender_dataset.csv', header=0)
+
+# Set comprehension
+# new_set = {set.lower() for item in old_set}
+
 ### Swiping ###
 
 # TODO
 # Set profile to bisexual
-    # Get name of profile
-    # Get database of mens names
-    # Get length of boys name, generate list of boys names for that length, search in list
     # Swipe right (50-100%) of non-boy names
 # Messaging
     # At end of round --> review new matches
     # Get name and send name all in caps until no matches left
     # Then start new round
 # Hacks
-    # Improve profile description
     # Go to different location
-    # Change profile
     # Reset account
     # Message straight away
 
-like_ratio_rand = random.randint(20, 50)
-swipe_sesh = 50
+# Functions
+
+def name_gender():
+    name_xpath = '//*[@id="q-401777178"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div[3]/div/div[1]/div/div/span | //*[@id="q-401777178"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div[4]/div/div[1]/div/div[1]/span | //*[@id="q-401777178"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div[3]/div/div[1]/div/div[1]/span' #find name
+    name_location = driver.find_element(by='xpath', value=name_xpath) #find the name
+    prof_name = name_location.text #save the name
+    try:
+        return name_df[name_df['Name'] == prof_name]['Gender'].iloc[0]
+    except:
+        return 'M' # If can't find name, treat as man
+
+def swipe_right():
+    like_xpath = '//button//span[text()="Like"]'  # like button element
+    like_location = driver.find_element(by='xpath', value=like_xpath)  # find the like button
+    driver.execute_script("arguments[0].click();", like_location)  # click on like
+
+def swipe_left():
+    nope_xpath = '//button//span[text()="Nope"]'
+    nope_location = driver.find_element(by='xpath', value=nope_xpath)
+    driver.execute_script("arguments[0].click();", nope_location)
+
+def close_match_pu():
+    close_match_xpath = '//*[@id="q-71405977"]/main/div/div[1]/div/div[4]/button/svg/path'
+    close_match_window = driver.find_element(by='xpath', value=close_match_xpath)
+    close_match_window.click()
+
+def close_pu():
+    pop_up_close_txt_xpath = '//button/span[text()="Maybe Later"] | //button/span[text()="Not interested"] | //button/span[text()="No Thanks"]'
+    close_pop_up = driver.find_element(by='xpath', value=pop_up_close_txt_xpath)
+    close_pop_up.click()
+
+like_ratio_rand = random.randint(10, 20)
+swipe_sesh = 100
 
 while True:
     i = 0
@@ -47,33 +80,24 @@ while True:
     time.sleep(3)
     for i in range(swipe_sesh):
         try:
-            score = random.randint(0, 100) #attractiveness - rand for now
-            if score > like_ratio_rand:
-                # liking someone
-                like_xpath = '//button//span[text()="Like"]' #like button element
-                like_location = driver.find_element(by='xpath', value=like_xpath) #find the like button
-                driver.execute_script("arguments[0].click();", like_location) #click on like
+            if name_gender() == 'M':
+                swipe_left()
+                # pause between actions
+                sleep_time = random.randint(1, 3)
+                time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
             else:
-                # noping someone
-                nope_xpath = '//button//span[text()="Nope"]'  # like button element
-                nope_location = driver.find_element(by='xpath', value=nope_xpath)  # find the like button
-                driver.execute_script("arguments[0].click();", nope_location)  # click on like
-
-            # pause between swipes
-            sleep_time = random.randint(1, 3)
-            time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
-
-            # closing match pop up
-            close_match_xpath = '//button[@title=Keep Swiping"]'
-            close_match_window = driver.find_element(by='xpath', value =close_match_xpath)
-            close_match_window.click()
-            time.sleep(1)
-
+                score = random.randint(0, 100)  # attractiveness - rand for now
+                if score > like_ratio_rand:
+                    swipe_right()
+                    time.sleep(1)
+                    # close match pop up if match
+                    close_match_pu()
+                # pause between actions
+                sleep_time = random.randint(1, 3)
+                time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
+            i += 1
         except:
             try:
-                # closing pop ups
-                pop_up_close_txt_xpath = '//button/span[text()="Maybe Later"] | //button/span[text()="Not interested"] | //button/span[text()="No Thanks"]'
-                close_pop_up = driver.find_element(by='xpath', value=pop_up_close_txt_xpath)
-                close_pop_up.click()
+                close_pu()
             except:
                 pass

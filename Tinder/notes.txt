@@ -8,6 +8,18 @@ https://github.com/aj-4/tinder-swipe-bot/blob/master/tinder_bot.py
 Run this in terminal:
  /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-dir="/Users/hmartin6/Desktop/chrome_debugger"
 
+Boys names:
+
+    - Follow links manually: https://www.peanut-app.io/blog/top-baby-boy-names
+    - Scrape this: https://babynames.com/boy-names
+
+Name x-paths:
+
+    - /html/body/div[1]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div[3]/div/div[1]/div/div/span
+    - //*[@id="q-401777178"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div[3]/div/div[1]/div/div/span
+    - /html/body/div[1]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div[3]/div/div[1]/div/div/span
+
+
 ML:
 
 - You can get an image url
