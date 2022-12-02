@@ -31,6 +31,7 @@ name_df = pd.read_csv('name_gender_dataset.csv', header=0)
 # TODO
 # Set profile to bisexual
     # See how effective it is
+    # Add to swipping_click
 # Messaging
     # At end of round --> review new matches
     # Get name and send name all in caps until no matches left
@@ -71,7 +72,7 @@ def close_pu():
     close_pop_up = driver.find_element(by='xpath', value=pop_up_close_txt_xpath)
     close_pop_up.click()
 
-like_ratio_rand = random.randint(10, 20)
+#like_ratio_rand = random.randint(10, 20)
 swipe_sesh = 100
 
 while True:
@@ -82,19 +83,16 @@ while True:
         try:
             if name_gender() == 'M':
                 swipe_left()
-                # pause between actions
-                sleep_time = random.randint(1, 3)
-                time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
             else:
-                score = random.randint(0, 100)  # attractiveness - rand for now
-                if score > like_ratio_rand:
-                    swipe_right()
-                    time.sleep(1)
-                    # close match pop up if match
-                    close_match_pu()
-                # pause between actions
-                sleep_time = random.randint(1, 3)
-                time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
+                #score = random.randint(0, 100)  # attractiveness - rand for now
+                #if score > like_ratio_rand:
+                swipe_right()
+                # closing match box
+                time.sleep(1)
+                close_match_pu()
+            # pause between actions
+            sleep_time = random.randint(1, 2)
+            time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
             i += 1
         except:
             try:
