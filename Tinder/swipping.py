@@ -30,7 +30,7 @@ name_df = pd.read_csv('name_gender_dataset.csv', header=0)
 
 # TODO
 # Set profile to bisexual
-    # Swipe right (50-100%) of non-boy names
+    # See how effective it is
 # Messaging
     # At end of round --> review new matches
     # Get name and send name all in caps until no matches left
