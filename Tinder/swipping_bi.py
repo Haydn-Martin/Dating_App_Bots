@@ -24,23 +24,19 @@ web = 'https://tinder.com/'
 # boys names csv
 name_df = pd.read_csv('name_gender_dataset.csv', header=0)
 
-# Set comprehension
-# new_set = {set.lower() for item in old_set}
-
 ### Swiping ###
 
 # TODO
 # Set profile to bisexual
     # See how effective it is
-    # Add to swipping_click
 # Messaging
     # At end of round --> review new matches
     # Get name and send name all in caps until no matches left
     # Then start new round
 # Hacks
     # Go to different location
-    # Reset account
     # Message straight away
+    # Reset account
 
 # Functions
 
@@ -80,9 +76,13 @@ def close_pu():
     close_pop_up = driver.find_element(by='xpath', value=pop_up_close_txt_xpath)
     close_pop_up.click()
 
-#like_ratio_rand = random.randint(10, 20)
+### CONFIG ###
+like_ratio_rand = random.randint(10, 20)
 swipe_sesh = 100
 need_click = True
+##############
+
+# Execute swiping
 
 while True:
     i = 0
@@ -91,7 +91,7 @@ while True:
     for i in range(swipe_sesh):
         try:
             if name_gender() == 'M':
-                swipe_left()
+               swipe_left()
             else:
                 #score = random.randint(0, 100)  # attractiveness - rand for now
                 #if score > like_ratio_rand:
@@ -105,7 +105,6 @@ while True:
             # click mouse to keep laptop active
             if need_click:
                 click_mouse(i)
-            i += 1
         except:
             try:
                 close_pu()
