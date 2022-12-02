@@ -1,6 +1,7 @@
 import random
 import time
 import pandas as pd
+import pyautogui as pyaut
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -43,6 +44,13 @@ name_df = pd.read_csv('name_gender_dataset.csv', header=0)
 
 # Functions
 
+def click_mouse(counter):
+    if counter % 2 == 0:
+        pyaut.moveRel(0, 30)
+    else:
+        pyaut.moveRel(0, -30)
+    pyaut.click()
+
 def name_gender():
     name_xpath = '//*[@id="q-401777178"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div[3]/div/div[1]/div/div/span | //*[@id="q-401777178"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div[4]/div/div[1]/div/div[1]/span | //*[@id="q-401777178"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div[3]/div/div[1]/div/div[1]/span' #find name
     name_location = driver.find_element(by='xpath', value=name_xpath) #find the name
@@ -74,6 +82,7 @@ def close_pu():
 
 #like_ratio_rand = random.randint(10, 20)
 swipe_sesh = 100
+need_click = True
 
 while True:
     i = 0
@@ -93,6 +102,9 @@ while True:
             # pause between actions
             sleep_time = random.randint(1, 2)
             time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
+            # click mouse to keep laptop active
+            if need_click:
+                click_mouse(i)
             i += 1
         except:
             try:
