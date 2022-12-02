@@ -77,7 +77,7 @@ def close_pu():
     close_pop_up.click()
 
 ### CONFIG ###
-like_ratio_rand = random.randint(10, 20)
+like_ratio_rand = random.randint(20, 30)
 swipe_sesh = 100
 need_click = True
 ##############
@@ -93,12 +93,12 @@ while True:
             if name_gender() == 'M':
                swipe_left()
             else:
-                #score = random.randint(0, 100)  # attractiveness - rand for now
-                #if score > like_ratio_rand:
-                swipe_right()
-                # closing match box
-                time.sleep(1)
-                close_match_pu()
+                score = random.randint(0, 100)  # attractiveness - rand for now
+                if score > like_ratio_rand:
+                    swipe_right()
+                    # closing match box
+                    time.sleep(1)
+                    close_match_pu()
             # pause between actions
             sleep_time = random.randint(1, 2)
             time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
