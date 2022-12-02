@@ -1,6 +1,7 @@
 import random
 import time
 import pandas as pd
+import pyautogui as pyaut
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -23,24 +24,28 @@ web = 'https://tinder.com/'
 # boys names csv
 name_df = pd.read_csv('name_gender_dataset.csv', header=0)
 
-# Set comprehension
-# new_set = {set.lower() for item in old_set}
-
 ### Swiping ###
 
 # TODO
 # Set profile to bisexual
-    # Swipe right (50-100%) of non-boy names
+    # See how effective it is
 # Messaging
     # At end of round --> review new matches
     # Get name and send name all in caps until no matches left
     # Then start new round
 # Hacks
     # Go to different location
-    # Reset account
     # Message straight away
+    # Reset account
 
 # Functions
+
+def click_mouse(counter):
+    if counter % 2 == 0:
+        pyaut.moveRel(0, 30)
+    else:
+        pyaut.moveRel(0, -30)
+    pyaut.click()
 
 def name_gender():
     name_xpath = '//*[@id="q-401777178"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div[3]/div/div[1]/div/div/span | //*[@id="q-401777178"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div[4]/div/div[1]/div/div[1]/span | //*[@id="q-401777178"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div[3]/div/div[1]/div/div[1]/span' #find name
@@ -71,8 +76,13 @@ def close_pu():
     close_pop_up = driver.find_element(by='xpath', value=pop_up_close_txt_xpath)
     close_pop_up.click()
 
-like_ratio_rand = random.randint(10, 20)
+### CONFIG ###
+like_ratio_rand = random.randint(20, 30)
 swipe_sesh = 100
+need_click = True
+##############
+
+# Execute swiping
 
 while True:
     i = 0
@@ -81,21 +91,20 @@ while True:
     for i in range(swipe_sesh):
         try:
             if name_gender() == 'M':
-                swipe_left()
-                # pause between actions
-                sleep_time = random.randint(1, 3)
-                time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
+               swipe_left()
             else:
                 score = random.randint(0, 100)  # attractiveness - rand for now
                 if score > like_ratio_rand:
                     swipe_right()
+                    # closing match box
                     time.sleep(1)
-                    # close match pop up if match
                     close_match_pu()
-                # pause between actions
-                sleep_time = random.randint(1, 3)
-                time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
-            i += 1
+            # pause between actions
+            sleep_time = random.randint(1, 2)
+            time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
+            # click mouse to keep laptop active
+            if need_click:
+                click_mouse(i)
         except:
             try:
                 close_pu()
