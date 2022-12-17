@@ -21,9 +21,6 @@ driver = webdriver.Chrome(service=service, options=options)
 # web address
 web = 'https://tinder.com/'
 
-# boys names csv
-name_df = pd.read_csv('name_gender_dataset.csv', header=0)
-
 ### Swiping ###
 
 # TODO
@@ -47,15 +44,6 @@ def click_mouse(counter):
         pyaut.moveRel(0, -30)
     pyaut.click()
 
-def name_gender():
-    name_xpath = '//*[@id="q-401777178"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div[3]/div/div[1]/div/div/span | //*[@id="q-401777178"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div[4]/div/div[1]/div/div[1]/span | //*[@id="q-401777178"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div[3]/div/div[1]/div/div[1]/span' #find name
-    name_location = driver.find_element(by='xpath', value=name_xpath) #find the name
-    prof_name = name_location.text #save the name
-    try:
-        return name_df[name_df['Name'] == prof_name]['Gender'].iloc[0]
-    except:
-        return 'M' # If can't find name, treat as man
-
 def swipe_right():
     like_xpath = '//button//span[text()="Like"]'  # like button element
     like_location = driver.find_element(by='xpath', value=like_xpath)  # find the like button
@@ -78,8 +66,8 @@ def close_pu():
 
 ### CONFIG ###
 like_ratio_rand = random.randint(20, 50)
-swipe_sesh = 100
-need_click = True
+swipe_sesh = 50
+need_click = False
 ##############
 
 # Execute swiping
@@ -102,10 +90,10 @@ while True:
             sleep_time = random.randint(1, 2)
             time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
             # click mouse to keep laptop active
-            if need_click:
-                click_mouse(i)
         except:
             try:
                 close_pu()
             except:
                 pass
+        if need_click:
+            click_mouse(i)
