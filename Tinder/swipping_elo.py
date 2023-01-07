@@ -65,9 +65,9 @@ def close_pu():
     close_pop_up.click()
 
 ### CONFIG ###
-like_ratio_rand = random.randint(20, 50)
+like_ratio_rand = random.randint(60, 80)
 swipe_sesh = 50
-need_click = False
+need_click = True
 ##############
 
 # Execute swiping
@@ -87,7 +87,7 @@ while True:
             else:
                 swipe_left()
             # pause between actions
-            sleep_time = random.randint(1, 2)
+            sleep_time = random.randint(3, 7)
             time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
             # click mouse to keep laptop active
         except:
