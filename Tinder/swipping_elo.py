@@ -10,7 +10,7 @@ from selenium.webdriver.chrome.options import Options
 ### Accessing tinder in chrome ###
 
 # chrome driver info
-chrome_driver_path = '/Users/hmartin6/Repos_Support/Dating_App_Bots/Tinder/chromedriver'
+chrome_driver_path = '/Users/user.name/Desktop/chrome_debugger'
 service = Service(executable_path=chrome_driver_path)
 
 options = Options()
@@ -22,18 +22,6 @@ driver = webdriver.Chrome(service=service, options=options)
 web = 'https://tinder.com/'
 
 ### Swiping ###
-
-# TODO
-# Messaging
-    # At end of round --> review new matches
-    # Get name and send name all in caps until no matches left
-    # Then start new round
-# Profile quality rank
-    # Get profile attributes
-# Hacks
-    # Go to different location
-    # Message straight away
-    # Reset account
 
 # Functions
 
@@ -64,21 +52,21 @@ def close_pu():
     close_pop_up = driver.find_element(by='xpath', value=pop_up_close_txt_xpath)
     close_pop_up.click()
 
-### CONFIG ###
-like_ratio_rand = random.randint(60, 80)
-swipe_sesh = 50
-need_click = True
-##############
+# Swipe session config
+
+like_ratio_rand = random.randint(60, 80) #sets like ratio for session
+swipe_sesh = 50 #sets number of swipes before refresh
+need_click = True #sets click mouse after session refresh
 
 # Execute swiping
 
 while True:
     i = 0
-    driver.get(web)  # open tinder in chrome
+    driver.get(web)  #open tinder in chrome
     time.sleep(3)
     for i in range(swipe_sesh):
         try:
-            score = random.randint(0, 100)  # attractiveness - rand for now
+            score = random.randint(0, 100)  #attractiveness - rand for now
             if score > like_ratio_rand:
                 swipe_right()
                 # closing match box
@@ -88,12 +76,11 @@ while True:
                 swipe_left()
             # pause between actions
             sleep_time = random.randint(3, 7)
-            time.sleep(sleep_time)  # pause from a random amount of seconds to stop bot protection
-            # click mouse to keep laptop active
+            time.sleep(sleep_time)  #pause from a random amount of seconds to stop bot protection
         except:
             try:
                 close_pu()
             except:
                 pass
         if need_click:
-            click_mouse(i)
+            click_mouse(i) #click mouse to keep laptop active
