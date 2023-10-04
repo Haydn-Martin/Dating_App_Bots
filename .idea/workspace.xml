@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6ed77420-3ea1-44ed-a001-d0d7030b4154" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bumble/exploring_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bumble/exploring_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bumble/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bumble/.idea/Bumble.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bumble/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bumble/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bumble/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bumble/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bumble/exploring_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bumble/json_API_files/GET_ENCOUNTERS.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bumble/json_API_files/GET_SEARCH_SETTINGS.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bumble/json_API_files/GET_USER_LIST.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bumble/json_API_files/curl_HTTP_request_GET_SEARCH_SETTINGS.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bumble/swipping_basic.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinder/.ipynb_checkpoints/name_testing-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinder/decom/initial_msg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinder/decom/swipping_click.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinder/name_gender_dataset.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinder/name_testing.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinder/notes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinder/old_names/1996boys_tcm77-254026.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinder/old_names/boys_names.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinder/old_names/boys_names_int.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinder/old_names/boys_names_int_v1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinder/swipping_bi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinder/swipping_elo.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinder/swipping_elo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinder/testing/.ipynb_checkpoints/messing_about-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinder/testing/messing_about.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinder/tinder_research_code.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Tinder/tinder_research_code.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/research_profile.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +66,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "public-clean-up"
+  }
+}]]></component>
   <component name="RunManager" selected="Python.exploring_api">
     <configuration name="exploring_api" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Dating_App_Bots" />
@@ -124,5 +154,16 @@
       <updated>1669706161094</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
